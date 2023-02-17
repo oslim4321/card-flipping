@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --primary: #FFCE00;
+    --secondary: #FE4880;
+    --dark: #212121;
+    --light:#F3F3F3;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    margin-left: 10px;
+}
+.cont{
+    width: 100%;
+    height: 100%;
+    margin: 20px 0px;
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+        background: yellow;
+        background: disabled;
+}
+.card{
+    width: 250px;
+    height: 300px;
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+.card_inner_font,.card_inner_back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background-position: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1s;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    color: white;
+
+    border-radius: 15px;
+}
+.card_inner_back{
+    transform: rotateY(180deg);
+/*     background: var(--primary); */
+}
+.card-inner{
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    cursor: pointer;
+    position: relative;
+    transform: rotateY(-0deg);
+    transform-style: preserve-3d;
+}
+.change .card-inner{
+    transform: rotateY(-180deg);
+}
+#flip{
+    z-index: 999;
+}
+.score{
+    position: absolute;
+    bottom: 50%;
+    right: 10%;
+    font-size: 20px;
+}

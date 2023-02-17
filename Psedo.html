@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            font-size: 20px;
+           
+        }
+        .inp:active{
+            background-color: red;
+
+        }
+        .inp:focus{
+            border: 4px soild green;
+        }
+
+        p::first-letter {
+            color: #ff0000;
+            font-size: xx-large;
+}
+
+    p::after{
+        content: 'hhshs';
+        color: green;
+    }
+    p::before{
+        content: 'love code';
+    }
+    input:checked{
+        box-shadow: 2px 2px 2px black;
+    }
+    button:disabled{
+        background-color: grey;
+    }
+    a:visited{
+        background-color: #ff0000;
+    }
+    .div{
+        position: relative;
+    }
+    
+    img:hover{
+        opacity: 0.8;
+    }
+    </style>
+</head>
+<body>
+    <input class="inp" type="text">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quaerat.</p>
+    <h1>wopwowo</h1>
+    <button disabled>Hello User</button>
+    <input type="checkbox">
+
+    <a  href="https://www.w3schools.com">Go to W3</a>
+
+   <div class="div">
+    <h1 class="opacity">Lower Opacity</h1>
+    <img src="./images/bad.jpg" alt="">
+   </div>
+
+   <select>
+    <option >home</option>
+    <option >ABOUT</option>
+    <option >CONTACT</option>
+   </select>
+
+
+
+</body>
+</html>

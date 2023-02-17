@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+       align-items: center;
+       justify-content: center;
+    }
+    .cont{
+        width: 50%;
+        height: 80%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       background-color: green;
+       border-radius: 10px;
+    }
+    .left{
+        width: 50%;
+        height: 100%;
+        background: url(images/pexels.jpeg) no-repeat;
+        background-position: fixed;
+        background-size: cover;
+        border-radius: 10px;
+    }
+    .right{
+        width: 70%;
+       
+       margin: 40px;
+    }
+    input{
+        width: 100%;
+        margin: 10px;
+       
+        border: none;
+        background: none;
+        border-bottom: dotted #ccc;
+        outline: none;
+    }
+    label{
+        font-size: 25px;
+        color: white;
+        transition: 0.3s;
+    }
+    .change label{
+       font-size: 20px;
+    }
+    input:focus{
+        border-bottom: 1px solid white;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="cont">
+            <div class="left"></div>
+            <div class="right">
+                <div class="inp">
+                    <label class="nam">Name</label>
+                    <input class="input" type="text">
+                </div>
+                <div class="inp">
+                    <label class="nam">E:mail</label>
+                    <input  class="input" type="text">
+                </div>
+                <div class="inp">
+                    <label class="nam">Password</label>
+                    <input  class="input" type="text">
+                </div>
+               
+               
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+         let sel =document.querySelectorAll('.input')
+        let label =document.querySelector('label');
+
+        sel.forEach(element => {
+            element.addEventListener('click', () =>{
+                element.classList.toggle('change')
+            
+                //label.style.color='red'
+        })
+        });
+        
+    </script>
+</body>
+</html>

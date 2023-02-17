@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Rotation</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="card.css">
+</head>
+
+<body>
+  
+
+ <div class="body">
+     <div class="see">
+     <h1 class="display-2 text-light">WELCOME TO BRAIN TEXT GAME</h1>
+     <p class="display-5 text-white">MAKE A BRAIN TEXT</p>
+     <button class="btn btn-success">Start Game</button>
+    </div>
+ </div>
+
+<div class="container">
+    <div class="center">
+        <p class="display-2">Mind Game</p>
+        <p style="font-size: 20px;">pick Correct card</p>
+    </div>
+
+    <div class="conto"></div>
+    <div class="conto"></div>
+    
+    
+    <p id="show" class="display-5"></p>
+
+
+    <div class="score">
+        <h3 style="margin-bottom: 20px;">You score <span class="credit">0</span></h3>
+        <h3>Failed Attempt <span class="loss">0</span></h3>
+    </div>
+
+    <!-- <button class="btn btn-danger" onclick="shuffle()">shuffle</button> -->
+
+    <button class="btn btn-success level" id="level">Go to level 2</button>
+
+</div>
+
+
+
+<div id="sel"></div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+        let array=[
+                {
+                    cardedA:[
+                        "<div  class='card' color='orange'><img src='images/cat-png-17.png'></div>",
+                        "<div  class='card' color='purple'><img src='images/dog-png-30_2.png'></div>",
+                        "<div  class='card' color='red'><img style='width: 100%;' src='images/shoe1.png'></div>",
+                        "<div  class='card' color='yellow'><img style= 'width: 100%;' src='images/shoe2.png'></div>"
+                    ]
+                },
+                
+                    {
+                        carded: [
+                        "<div  class='card' color='red'><img src='images/shoe1.png'></div>",
+                        "<div  class='card' color='purple'><img src='images/dog-png-30_2.png'></div>",
+                        "<div  class='card' c><img style='width: 100%;' src='images/shoe2.png'></div>",
+                        "<div  class='card' color='orange'><img src='images/cat-png-17.png'></div>"
+                    ]
+                }
+            ]
+
+
+
+
+ let counter=0
+ let firstSelect=''
+ let secondSelect=''
+ let score=0
+ let fail=0
+ index=0
+
+
+    // for (let index = 0; index < 5; index++) {
+    // doing.innerHTML+=`<div id='car' class="card" style="width: 300px; height: 250px; box-shadow: 0px 3px 2px 3px rgba(0,0,0,0.2);"></div>`
+    // }
+
+    // for (let index = 0; index < 5; index++) {
+    // work.innerHTML+=`<div id='car' class="card" style="width: 300px; height: 250px; box-shadow: 0px 3px 2px 3px rgba(0,0,0,0.2);"></div>`
+    // }
+  
+    
+    conto=document.querySelector('.conto')
+
+    
+        function display(){
+           return array.forEach((element,i) => {
+                conto.innerHTML+=`<div class='cont'>${element.cardedA}</div>
+                                  <div class='cont'>${element.carded}</div>`
+            });
+            
+        }
+      let arr= display()
+
+
+        let cont=document.querySelector('.container')
+        let body=document.querySelector('.body')
+        let lose=document.querySelector('.loss')
+        let card=document.querySelectorAll('.card');
+        let credit=document.querySelector('.credit')
+        let show=document.getElementById('show')
+        let showing=document.getElementById('showing')
+        let level=document.getElementById('level')
+        let sel =document.getElementById('sel')
+       
+
+
+       
+
+        level.addEventListener('click', ()=>{
+            sel.style.display='block'
+            cont.style.display='none'
+
+
+
+    card.forEach((element,i) => {
+        element.classList.add('change')
+       
+
+    let time =5;
+
+function traffic(){
+    let count=setInterval(() => {
+        time--
+        show.innerHTML=time
+        if(time ==0){
+        clearInterval(count)
+        element.classList.remove('change')
+        show.innerHTML=''
+    }
+    }, 1000);
+
+ 
+    }
+    traffic()
+})
+})
+
+
+
+
+
+    card.forEach((element,i) => {
+        element.addEventListener('click', () =>{
+           element.classList.add('change')
+           // e.stopPropagation();
+ 
+            if (counter === 0){
+            firstSelect = element.getAttribute('color')
+            counter++;
+            
+            }else{
+                secondSelect =element.getAttribute('color')
+                counter=0
+                if(firstSelect === secondSelect){
+                    score++
+                 let correctCard=document.querySelectorAll(".card[color='" +firstSelect+"']")
+   
+                 correctCard[0].classList.add("checked");
+                 correctCard[0].classList.remove('change');
+                 correctCard[1].classList.add("checked");
+                 correctCard[1].classList.remove('change');
+               
+                 credit.innerHTML=score
+             }
+             else{
+                fail++
+               let incorrect=document.querySelectorAll(".card.change")
+              
+                incorrect[0].classList.add("shake")
+                incorrect[1].classList.add("shake")
+
+                setTimeout(() => {
+                    incorrect[0].classList.remove("shake")
+                    incorrect[0].classList.remove("change")
+                    incorrect[1].classList.remove("shake")
+                    incorrect[1].classList.remove("change")
+                },800);
+                lose.innerHTML=fail
+             }
+
+            }
+            if(score === 4){
+                level.style.display='block'
+            }
+            
+                
+        })
+        
+    });
+   
+
+       
+
+btt=document.querySelector('button')
+    btt.addEventListener('click', ()=>{
+     body.innerHTML=''
+      cont.style.display='block'
+    
+    card.forEach((element,i) => {
+        element.classList.add('change')
+       
+
+    let time =5;
+
+function traffic(){
+    let count=setInterval(() => {
+        time--
+        show.innerHTML=time
+        if(time ==0){
+        clearInterval(count)
+        element.classList.remove('change')
+        show.innerHTML=''
+    }
+    }, 1000);
+
+ 
+    }
+    traffic()
+})
+
+});
+
+
+
+</script>
+
+
+</div>  
+</body>
+</html>
+
+  <!-- //  console.log(car)
+            // console.log(Array.from(car)) 
+
+            // car.forEach(child => {
+            //     child.classList.add('selim')
+            // }); --> 
+            <!-- // console.log(car[0].style);
+//     console.log(car.nextElementSibling)
+        // console.log(car.parentElement  )
+     -->
